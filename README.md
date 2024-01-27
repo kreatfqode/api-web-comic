@@ -78,8 +78,8 @@ layanan yang mungkin akan direquest oleh client
             FollowingAuthorID (Foreign Key ke Author)
             CreatedAt
 
-    Hubungan:
-        Hubungan antara entitas dijelaskan sebagai berikut:
+Hubungan:
+    Hubungan antara entitas dijelaskan sebagai berikut:
             User memiliki banyak Comment dan Rating. (One-to-Many)
             Author memiliki banyak Manga. (One-to-Many)
             Manga memiliki banyak Chapter, Rating, dan Web View Report. (One-to-Many)
