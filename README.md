@@ -1,8 +1,8 @@
 # api-web-comic
 
-Layanan yang mungkin akan direquest oleh client
+These improvements and additions are based on general best practices and can be further customized based on specific system requirements.
 
-# konsep awal
+## Conceptual Data
 
 ```
 Entity User:
@@ -98,7 +98,7 @@ Entity Follow:
         - LastFollowedAt
 ```
 
-Relationships:
+## Relationships
 
 -   User has many Comments and Ratings (Many-to-Many)
 -   Author has many Mangas (One-to-Many)
@@ -111,7 +111,7 @@ Relationships:
 -   Web View Report belongs to one User, one Manga, and one Chapter (Many-to-One)
 -   Follow is a Many-to-Many relationship between User and Author involving a pivot table.
 
-Additional Considerations:
+## Additional Considerations
 
 -   Security measures, including encrypted password storage and protection against SQL injection.
 -   Timestamps for each entity (CreatedAt, UpdatedAt, and DeletedAt for soft deletes).
