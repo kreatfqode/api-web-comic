@@ -1,78 +1,155 @@
-## User Use Case Analysis
+Scenario 1: User Likes a Manga
+Main Scenario:
 
-Certainly! Below are scenarios elaborating the possible use cases for the mentioned user interactions
+    User Action:
+        User selects a manga.
+        User clicks on the "Like" button associated with the manga.
 
-### Explanation use case
+    System Response:
+        The system records the user's like for the selected manga.
+        Likes count for the manga is updated.
+        The system updates the user's activity feed.
+        The system provides a visual confirmation to the user.
 
-```
-User Login:
-    User logs into the system.
+Alternative Scenario:
 
-User Chooses Manga:
-    User selects a manga to explore.
-    Alternative Case:
-        User likes the selected manga.
+    User Action:
+        User selects a manga.
+        User decides not to click the "Like" button.
 
-User Opens Manga:
-    User opens a specific manga.
-    Alternative Cases:
-        User follows the author of the manga.
-        User likes the manga.
-        Views count for the manga increases.
-        User rates the manga.
+    System Response:
+        The system does not record any action.
+        No change in the likes count.
+        The system does not update the user's activity feed.
+        No visual confirmation is provided.
 
-User Reads a Chapter:
-    User reads a specific chapter.
-    Alternative Case:
-        User comments on the chapter.
-            Alternative Case:
-                User likes the comment.
-        User reports the chapter.
+Scenario 2: User Follows an Author
+Main Scenario:
 
-User Opens Author's Biography:
-    User opens the biography of the author.
-    Alternative Case:
-        User follows the author.
-```
+    User Action:
+        User opens a manga.
+        User clicks on the "Follow Author" button associated with the manga's author.
 
-### Improvements and Clarifications
+    System Response:
+        The system records the user's follow action for the author.
+        The user is now following the author, and updates related to the author's new releases may be shown to the user.
+        The system updates the user's activity feed.
+        The system provides a visual confirmation to the user.
 
-Likes:
+Alternative Scenario:
 
--   It's not explicitly mentioned where the likes are being stored. Consider adding a "Like" entity to track likes on manga, chapters, and comments.
+    User Action:
+        User opens a manga.
+        User decides not to follow the author.
 
-Views Count:
+    System Response:
+        The system does not record any action.
+        The user does not receive updates related to the author's new releases.
+        The system does not update the user's activity feed.
+        No visual confirmation is provided.
 
--   Ensure that the views count is updated accurately. This may involve handling unique views to prevent duplications.
+Scenario 3: User Rates a Manga
+Main Scenario:
 
-Rating:
+    User Action:
+        User reads a manga.
+        User provides a rating (e.g., gives a star rating) to the manga.
 
--   Specify that the rating is given to a specific manga and not just a chapter. Consider storing ratings as a separate entity.
+    System Response:
+        The system records the user's rating for the manga.
+        The overall rating for the manga is updated.
+        The system updates the user's activity feed.
+        The system provides a visual confirmation to the user.
 
-Biography:
+Alternative Scenario:
 
--   Ensure that the biography of the author provides relevant information about the author.
+    User Action:
+        User reads a manga.
+        User decides not to provide a rating.
 
-Reporting:
+    System Response:
+        The system does not record any action.
+        No change in the overall rating.
+        The system does not update the user's activity feed.
+        No visual confirmation is provided.
 
--   Specify the type of report allowed (e.g., inappropriate content, spam) and include a process for handling reported content.
+Scenario 4: User Comments on a Chapter
+Main Scenario:
 
-Comments and Likes:
+    User Action:
+        User reads a chapter.
+        User writes a comment and submits it.
 
--   Clarify that comments and likes are associated with specific chapters and not just the manga in general.
+    System Response:
+        The system stores the user's comment along with the chapter ID.
+        The comment is displayed in the comments section for the specific chapter.
+        The system updates the user's activity feed.
+        The system provides a visual confirmation to the user.
 
-User Interaction:
+Alternative Scenario:
 
--   Consider adding user interaction feedback, such as notifications or updates, to enhance the user experience.
+    User Action:
+        User reads a chapter.
+        User decides not to write a comment.
 
-User Interface Considerations:
+    System Response:
+        The system does not record any action.
+        No comment is added to the chapter.
+        The system does not update the user's activity feed.
+        No visual confirmation is provided.
 
--   Consider the design and layout of the user interface to make the interactions intuitive and user-friendly.
+Scenario 5: User Likes a Comment
+Main Scenario:
 
-Data Security:
+    User Action:
+        User reads a chapter and views comments.
+        User clicks on the "Like" button associated with a specific comment.
 
--   Ensure that user interactions, especially likes, comments, and reports, are secured to prevent misuse.
+    System Response:
+        The system records the user's like for the comment.
+        Likes count for the comment is updated.
+        The system updates the user's activity feed.
+        The system provides a visual confirmation to the user.
 
-Exception Handling:
+Alternative Scenario:
 
--   Address error and exception handling scenarios, such as what happens if a user tries to perform an action without being logged in.
+    User Action:
+        User reads a chapter and views comments.
+        User decides not to like any comment.
+
+    System Response:
+        The system does not record any action.
+        No change in the likes count for comments.
+        The system does not update the user's activity feed.
+        No visual confirmation is provided.
+
+Scenario 6: User Reports a Chapter
+Main Scenario:
+
+    User Action:
+        User reads a chapter.
+        User clicks on the "Report" button associated with the chapter.
+
+    System Response:
+        The system records the user's report for the chapter.
+        The report is sent to the moderation or review system for further action.
+        The system updates the user's activity feed.
+        The system provides a visual confirmation to the user.
+
+Alternative Scenario:
+
+    User Action:
+        User reads a chapter.
+        User decides not to report the chapter.
+
+    System Response:
+        The system does not record any action.
+        The chapter is not reported.
+        The system does not update the user's activity feed.
+        No visual confirmation is provided.
+
+Notes:
+
+    Each main and alternative scenario provides a detailed sequence of user actions and corresponding system responses.
+    Redundant steps have been minimized, focusing on unique interactions within each scenario.
+    The system updates the user's activity feed to keep the user informed about their actions and relevant activities in the platform.

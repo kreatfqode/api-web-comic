@@ -1,6 +1,6 @@
 # api-web-comic
 
-layanan yang mungkin akan direquest oleh client
+Layanan yang mungkin akan direquest oleh client
 
 # konsep awal
 
@@ -116,3 +116,5 @@ Additional Considerations:
 -   Security measures, including encrypted password storage and protection against SQL injection.
 -   Timestamps for each entity (CreatedAt, UpdatedAt, and DeletedAt for soft deletes).
 -   Pivot table for the Follow relationship can include a LastFollowedAt timestamp.
+
+Note: [User Use Case Analisys](/documentation/user_use_case_analysis.md)
