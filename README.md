@@ -5,91 +5,114 @@ layanan yang mungkin akan direquest oleh client
 # konsep awal
 
 ```
-Entitas User:
-    Atribut:
-        UserID (Primary Key)
-        Username
-        Email
-        Password
-        Role (Contoh: 'User', 'Author', 'Admin')
-        CreatedAt
-        UpdatedAt
+Entity User:
 
-Entitas Author:
-    Atribut:
-        AuthorID (Primary Key)
-        UserID (Foreign Key ke User)
-        PenName
-        Biography
-        CreatedAt
-        UpdatedAt
+    Attributes:
+        - UserID (Primary Key)
+        - Username
+        - Email
+        - Password (Encrypted for security)
+        - Full Name
+        - Profile Picture
+        - Role (Example: 'User', 'Author', 'Admin')
+        - CreatedAt
+        - UpdatedAt
 
-Entitas Manga:
-    Atribut:
-        MangaID (Primary Key)
-        AuthorID (Foreign Key ke Author)
-        Title
-        Description
-        Genre
-        CoverImage
-        CreatedAt
-        UpdatedAt
+Entity Author:
 
-Entitas Chapter:
-    Atribut:
-        ChapterID (Primary Key)
-        MangaID (Foreign Key ke Manga)
-        Title
-        ChapterNumber
-        Content (misalnya, URL ke file gambar atau teks)
-        CreatedAt
-        UpdatedAt
+    Attributes:
+        - AuthorID (Primary Key)
+        - UserID (Foreign Key to User)
+        - PenName
+        - Biography
+        - Social Media/Contact Information
+        - CreatedAt
+        - UpdatedAt
 
-Entitas Comment:
-    Atribut:
-        CommentID (Primary Key)
-        UserID (Foreign Key ke User)
-        MangaID (Foreign Key ke Manga)
-        ChapterID (Foreign Key ke Chapter)
-        Content
-        CreatedAt
-        UpdatedAt
+Entity Manga:
 
-Entitas Rating:
-    Atribut:
-        RatingID (Primary Key)
-        UserID (Foreign Key ke User)
-        MangaID (Foreign Key ke Manga)
-        Rating (Misalnya, 1 hingga 5)
-        CreatedAt
+    Attributes:
+        - MangaID (Primary Key)
+        - AuthorID (Foreign Key to Author)
+        - Title
+        - Description
+        - Genre (Array to support multiple genres)
+        - CoverImage
+        - Views Count
+        - CreatedAt
+        - UpdatedAt
 
-Entitas Web View Report:
-    Atribut:
-        ReportID (Primary Key)
-        MangaID (Foreign Key ke Manga)
-        ChapterID (Foreign Key ke Chapter)
-        UserID (Foreign Key ke User)
-        ReportType (Misalnya, 'Inappropriate Content', 'Spam', dll.)
-        Description
-        CreatedAt
+Entity Chapter:
 
-Entitas Follow:
-    Atribut:
-        FollowID (Primary Key)
-        FollowerUserID (Foreign Key ke User)
-        FollowingAuthorID (Foreign Key ke Author)
-        CreatedAt
+    Attributes:
+        - ChapterID (Primary Key)
+        - MangaID (Foreign Key to Manga)
+        - Title
+        - ChapterNumber
+        - Content (e.g., URL to image file or text)
+        - CreatedAt
+        - UpdatedAt
+
+Entity Comment:
+
+    Attributes:
+        - CommentID (Primary Key)
+        - UserID (Foreign Key to User)
+        - MangaID (Foreign Key to Manga)
+        - ChapterID (Foreign Key to Chapter)
+        - Content
+        - ParentCommentID (Foreign Key to Comment for reply structure)
+        - Likes Count
+        - CreatedAt
+        - UpdatedAt
+
+Entity Rating:
+
+    Attributes:
+        - RatingID (Primary Key)
+        - UserID (Foreign Key to User)
+        - MangaID (Foreign Key to Manga)
+        - Rating (e.g., 1 to 5)
+        - Review (to support additional comments)
+        - CreatedAt
+
+Entity Web View Report:
+
+    Attributes:
+        - ReportID (Primary Key)
+        - MangaID (Foreign Key to Manga)
+        - ChapterID (Foreign Key to Chapter)
+        - UserID (Foreign Key to User)
+        - ReportType (e.g., 'Inappropriate Content', 'Spam', etc.)
+        - Description
+        - Status (e.g., 'Processed', 'Rejected')
+        - CreatedAt
+
+Entity Follow:
+
+    Attributes:
+        - FollowID (Primary Key)
+        - FollowerUserID (Foreign Key to User)
+        - FollowingAuthorID (Foreign Key to Author)
+        - CreatedAt
+        - LastFollowedAt
 ```
 
-Hubungan (Hubungan antara entitas dijelaskan sebagai berikut)
+Relationships:
 
--   User memiliki banyak Comment dan Rating. (One-to-Many)
--   Author memiliki banyak Manga. (One-to-Many)
--   Manga memiliki banyak Chapter, Rating, dan Web View Report. (One-to-Many)
--   Chapter memiliki banyak Comment dan termasuk dalam banyak Web View Report. (One-to-Many)
--   Comment hanya memiliki satu User. (Many-to-One)
--   Comment hanya memiliki satu Manga. (Many-to-One)
--   Comment hanya memiliki satu Chapter. (Many-to-One)
--   Rating hanya memiliki satu User dan satu Manga. (Many-to-One)
--   Web View Report hanya memiliki satu User, satu Manga, dan satu Chapter. (Many-to-One)
--   Follow adalah Many-to-Many antara User dan Author yang melibatkan tabel pivot.
+-   User has many Comments and Ratings (Many-to-Many)
+-   Author has many Mangas (One-to-Many)
+-   Manga has many Chapters, Ratings, and Web View Reports (One-to-Many)
+-   Chapter has many Comments and is included in many Web View Reports (One-to-Many)
+-   Comment belongs to one User (Many-to-One)
+-   Comment belongs to one Manga (Many-to-One)
+-   Comment belongs to one Chapter (Many-to-One)
+-   Rating belongs to one User and one Manga (Many-to-One)
+-   Web View Report belongs to one User, one Manga, and one Chapter (Many-to-One)
+-   Follow is a Many-to-Many relationship between User and Author involving a pivot table.
+
+Additional Considerations:
+
+-   Security measures, including encrypted password storage and protection against SQL injection.
+-   Timestamps for each entity (CreatedAt, UpdatedAt, and DeletedAt for soft deletes).
+-   Pivot table for the Follow relationship can include a LastFollowedAt timestamp.
