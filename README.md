@@ -2,6 +2,8 @@
 
 These improvements and additions are based on general best practices and can be further customized based on specific system requirements.
 
+[Use Case Analisys](./documentation/UsecaseWebComic-Manga.pdf)
+
 ## Conceptual Data
 
 ```
@@ -116,5 +118,3 @@ Entity Follow:
 -   Security measures, including encrypted password storage and protection against SQL injection.
 -   Timestamps for each entity (CreatedAt, UpdatedAt, and DeletedAt for soft deletes).
 -   Pivot table for the Follow relationship can include a LastFollowedAt timestamp.
-
-Note: [User Use Case Analisys](/documentation/user_use_case_analysis.md)
