@@ -5,132 +5,132 @@ app
 └── Domains
     ├── User
     │   ├── Actions
-    │   │   ├── UserRegistrationAction.php
-    │   │   ├── UserAuthenticationAction.php
-    │   │   └── UserAuthorizationAction.php
+    │   │   ├── UserRegistrationAction
+    │   │   ├── UserAuthenticationAction
+    │   │   └── UserAuthorizationAction
     │   ├── Data
-    │   │   └── UserRepository.php
+    │   │   └── UserRepository
     │   ├── Events
-    │   │   └── UserRegistered.php
+    │   │   └── UserRegistered
     │   ├── Exceptions
-    │   │   ├── UserNotFoundException.php
-    │   │   └── UserUnauthorizedException.php
+    │   │   ├── UserNotFoundException
+    │   │   └── UserUnauthorizedException
     │   ├── Http
     │   │   └── Resources
-    │   │       └── UserResource.php
+    │   │       └── UserResource
     │   ├── Jobs
-    │   │   └── SendUserRegistrationEmailJob.php
+    │   │   └── SendUserRegistrationEmailJob
     │   ├── Listeners
-    │   │   └── UserRegisteredListener.php
+    │   │   └── UserRegisteredListener
     │   ├── Policies
-    │   │   └── UserPolicy.php
+    │   │   └── UserPolicy
     │   └── Services
-    │       ├── AuthenticationService.php
-    │       ├── AuthorizationService.php
-    │       └── UserService.php
+    │       ├── AuthenticationService
+    │       ├── AuthorizationService
+    │       └── UserService
     ├── Manga
     │   ├── Actions
-    │   │   ├── MangaDiscoveryAction.php
-    │   │   ├── CommentLeavingAction.php
-    │   │   └── RatingGivingAction.php
+    │   │   ├── MangaDiscoveryAction
+    │   │   ├── CommentLeavingAction
+    │   │   └── RatingGivingAction
     │   ├── Data
-    │   │   ├── MangaRepository.php
-    │   │   ├── CommentRepository.php
-    │   │   ├── RatingRepository.php
-    │   │   └── AuthorRepository.php
+    │   │   ├── MangaRepository
+    │   │   ├── CommentRepository
+    │   │   ├── RatingRepository
+    │   │   └── AuthorRepository
     │   ├── Events
-    │   │   ├── CommentLeft.php
-    │   │   └── RatingGiven.php
+    │   │   ├── CommentLeft
+    │   │   └── RatingGiven
     │   ├── Exceptions
-    │   │   ├── MangaNotFoundException.php
-    │   │   ├── CommentNotFoundException.php
-    │   │   └── RatingNotFoundException.php
+    │   │   ├── MangaNotFoundException
+    │   │   ├── CommentNotFoundException
+    │   │   └── RatingNotFoundException
     │   ├── Http
     │   │   └── Resources
-    │   │       ├── MangaResource.php
-    │   │       ├── CommentResource.php
-    │   │       └── RatingResource.php
+    │   │       ├── MangaResource
+    │   │       ├── CommentResource
+    │   │       └── RatingResource
     │   ├── Jobs
-    │   │   ├── NotifyAuthorOnNewCommentJob.php
-    │   │   └── NotifyUserOnNewRatingJob.php
+    │   │   ├── NotifyAuthorOnNewCommentJob
+    │   │   └── NotifyUserOnNewRatingJob
     │   ├── Listeners
-    │   │   ├── CommentLeftListener.php
-    │   │   └── RatingGivenListener.php
+    │   │   ├── CommentLeftListener
+    │   │   └── RatingGivenListener
     │   ├── Policies
-    │   │   ├── MangaPolicy.php
-    │   │   ├── CommentPolicy.php
-    │   │   └── RatingPolicy.php
+    │   │   ├── MangaPolicy
+    │   │   ├── CommentPolicy
+    │   │   └── RatingPolicy
     │   └── Services
-    │       └── RecommendationService.php
+    │       └── RecommendationService
     ├── Admin
     │   ├── Actions
-    │   │   ├── AdminAuthenticationAction.php
-    │   │   ├── AdminAuthorizationAction.php
-    │   │   ├── AdminManagingUsersAction.php
-    │   │   ├── AdminManagingAuthorsAction.php
-    │   │   ├── AdminManagingMangaAction.php
-    │   │   ├── AdminManagingReportsAction.php
-    │   │   └── AdminManagingWarningsAction.php
+    │   │   ├── AdminAuthenticationAction
+    │   │   ├── AdminAuthorizationAction
+    │   │   ├── AdminManagingUsersAction
+    │   │   ├── AdminManagingAuthorsAction
+    │   │   ├── AdminManagingMangaAction
+    │   │   ├── AdminManagingReportsAction
+    │   │   └── AdminManagingWarningsAction
     │   ├── Data
-    │   │   ├── AdminRepository.php
-    │   │   ├── ReportRepository.php
-    │   │   └── WarningMessageRepository.php
+    │   │   ├── AdminRepository
+    │   │   ├── ReportRepository
+    │   │   └── WarningMessageRepository
     │   ├── Events
-    │   │   ├── AdminReportReceived.php
-    │   │   └── AdminWarningIssued.php
+    │   │   ├── AdminReportReceived
+    │   │   └── AdminWarningIssued
     │   ├── Exceptions
-    │   │   ├── AdminNotFoundException.php
-    │   │   └── AdminUnauthorizedException.php
+    │   │   ├── AdminNotFoundException
+    │   │   └── AdminUnauthorizedException
     │   ├── Http
     │   │   └── Resources
-    │   │       ├── AdminResource.php
-    │   │       ├── ReportResource.php
-    │   │       └── WarningMessageResource.php
+    │   │       ├── AdminResource
+    │   │       ├── ReportResource
+    │   │       └── WarningMessageResource
     │   ├── Jobs
-    │   │   ├── NotifyAdminOnReportJob.php
-    │   │   └── NotifyAdminOnWarningJob.php
+    │   │   ├── NotifyAdminOnReportJob
+    │   │   └── NotifyAdminOnWarningJob
     │   ├── Listeners
-    │   │   ├── AdminReportReceivedListener.php
-    │   │   └── AdminWarningIssuedListener.php
+    │   │   ├── AdminReportReceivedListener
+    │   │   └── AdminWarningIssuedListener
     │   ├── Policies
-    │   │   ├── AdminPolicy.php
-    │   │   ├── ReportPolicy.php
-    │   │   └── WarningMessagePolicy.php
+    │   │   ├── AdminPolicy
+    │   │   ├── ReportPolicy
+    │   │   └── WarningMessagePolicy
     │   └── Services
-    │       ├── AdminAuthenticationService.php
-    │       ├── AdminAuthorizationService.php
-    │       └── AdminService.php
+    │       ├── AdminAuthenticationService
+    │       ├── AdminAuthorizationService
+    │       └── AdminService
     └── Author
         ├── Actions
-        │   ├── AuthorRegistrationAction.php
-        │   ├── AuthorProfileManagementAction.php
-        │   ├── MangaCreationAction.php
-        │   └── ChapterManagementAction.php
+        │   ├── AuthorRegistrationAction
+        │   ├── AuthorProfileManagementAction
+        │   ├── MangaCreationAction
+        │   └── ChapterManagementAction
         ├── Data
-        │   ├── AuthorRepository.php
-        │   └── MangaRepository.php
+        │   ├── AuthorRepository
+        │   └── MangaRepository
         ├── Events
-        │   ├── AuthorRegistered.php
-        │   └── NewChapterPublished.php
+        │   ├── AuthorRegistered
+        │   └── NewChapterPublished
         ├── Exceptions
-        │   ├── AuthorNotFoundException.php
-        │   └── MangaNotFoundException.php
+        │   ├── AuthorNotFoundException
+        │   └── MangaNotFoundException
         ├── Http
         │   └── Resources
-        │       ├── AuthorResource.php
-        │       └── MangaResource.php
+        │       ├── AuthorResource
+        │       └── MangaResource
         ├── Jobs
-        │   ├── NotifyAdminOnNewAuthorJob.php
-        │   └── NotifyFollowersOnNewChapterJob.php
+        │   ├── NotifyAdminOnNewAuthorJob
+        │   └── NotifyFollowersOnNewChapterJob
         ├── Listeners
-        │   ├── AuthorRegisteredListener.php
-        │   └── NewChapterPublishedListener.php
+        │   ├── AuthorRegisteredListener
+        │   └── NewChapterPublishedListener
         ├── Policies
-        │   ├── AuthorPolicy.php
-        │   └── MangaPolicy.php
+        │   ├── AuthorPolicy
+        │   └── MangaPolicy
         └── Services
-            ├── AuthorRegistrationService.php
-            ├── AuthorProfileManagementService.php
-            ├── MangaCreationService.php
-            └── ChapterManagementService.php
+            ├── AuthorRegistrationService
+            ├── AuthorProfileManagementService
+            ├── MangaCreationService
+            └── ChapterManagementService
 ```
