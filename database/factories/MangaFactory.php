@@ -1,0 +1,32 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+use App\Models\Author;
+use App\Models\manga;
+
+class MangaFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Manga::class;
+
+    /**
+     * Define the model's default state.
+     */
+    public function definition(): array
+    {
+        return [
+            'author_id' => Author::factory(),
+            'title' => $this->faker->sentence(4),
+            'description' => $this->faker->text(),
+            'genre' => $this->faker->text(),
+            'cover_image' => $this->faker->regexify('[A-Za-z0-9]{200}'),
+        ];
+    }
+}
